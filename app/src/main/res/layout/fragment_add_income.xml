@@ -38,21 +38,55 @@
     </androidx.appcompat.widget.Toolbar>
 
     <!--Toolbar XML design End-->
-    <RelativeLayout
-        android:layout_marginTop="10dp"
+    <LinearLayout
+        android:layout_marginTop="15dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/catergoryCV"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_margin="8dp"
+            android:elevation="5dp">
+            <Spinner
+                android:id="@+id/incomeCategorySpinner"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+        </androidx.cardview.widget.CardView>
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_margin="8dp"
+            android:elevation="5dp">
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <DatePicker
+                    android:id="@+id/addIncomeDatePicker"
+                    android:layout_width="200dp"
+                    android:layout_height="match_parent"
+                    android:headerBackground="@android:color/black" />
+                <TimePicker
+                    android:id="@+id/addIncomeTimePicker"
+                    android:layout_width="200dp"
+                    android:layout_height="match_parent"
+                    android:headerBackground="@android:color/black"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
 
         <EditText
+            android:layout_marginTop="8dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Enter Your Amount"/>
 
-
-    </RelativeLayout>
-
-
-
-
+    </LinearLayout>
 
 </LinearLayout>
