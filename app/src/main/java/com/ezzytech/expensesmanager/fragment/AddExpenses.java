@@ -1,25 +1,22 @@
 package com.ezzytech.expensesmanager.fragment;
 
 import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.Spinner;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.DatePicker;
-import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.Spinner;
-import android.widget.TextView;
-import android.widget.TimePicker;
-import android.widget.Toast;
 
 import com.ezzytech.expensesmanager.R;
 import com.ezzytech.expensesmanager.Spinner_Classes.AllArray;
@@ -74,6 +71,22 @@ public class AddExpenses extends Fragment {
         monthAdapterAddExpenseFregment=new MonthAdapter(getContext(),allArrays_AddExpenseeFregment);
         spinnerCategoryAddExpense.setAdapter(monthAdapterAddExpenseFregment);
 
+        spinnerCategoryAddExpense.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                AllArray clickedCatagory = (AllArray) parent.getItemAtPosition(position);
+                String clickedCatagoryName = clickedCatagory.getItemName();
+                int clickedCatagoryIcon=clickedCatagory.getIcon();
+                Toast.makeText(getContext(), clickedCatagoryName + " selected", Toast.LENGTH_SHORT).show();
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
         allArrayAddExpenseFregmentPaymentCat = new AllArray();
         allArrays_AddExpenseeFregmentPaymentCat=allArrayAddExpenseFregmentPaymentCat.getPaymentCatagory();
         monthAdapterAddExpenseFregment=new MonthAdapter(getContext(),allArrays_AddExpenseeFregmentPaymentCat);
@@ -91,7 +104,8 @@ public class AddExpenses extends Fragment {
         saveButtonAddAddExpense.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getContext(), "Save Button active", Toast.LENGTH_SHORT).show();
+               // Toast.makeText(getContext(), "Save Button active", Toast.LENGTH_SHORT).show();
+
             }
         });
 
@@ -106,12 +120,17 @@ public class AddExpenses extends Fragment {
             @Override
             public void onClick(View v) {
                 date_time.handleDateButton();
+//                String date=date_time.thisIsDate;               // ------------------------------------------------------------------????????????????
+//                addDateExpense.setText(date);
+//                Toast.makeText(getContext(), date + " selected", Toast.LENGTH_SHORT).show();
             }
         });
         addTimeExpense.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 date_time.handleTimeButton();
+//                String time=date_time.thisIsTime;                ------------------------------------------------------------------????????????????
+//                addTimeExpense.setText(time);
             }
         });
 
@@ -128,5 +147,7 @@ public class AddExpenses extends Fragment {
         fragmentTransactionAddExpenseFragment.commit();
 
     }
+
+
 
 }

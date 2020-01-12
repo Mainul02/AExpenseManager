@@ -23,6 +23,8 @@ public class MonthAdapter extends ArrayAdapter<AllArray> {
     private Context context;
 
 
+
+
     public MonthAdapter(@NonNull Context context, ArrayList<AllArray> allArrays) {
         super(context,R.layout.spinner_desing,allArrays);
         this.context = context;

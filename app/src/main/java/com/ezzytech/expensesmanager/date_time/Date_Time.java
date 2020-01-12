@@ -11,6 +11,13 @@ import java.util.Calendar;
 
 public class Date_Time {
 
+    public String thisIsDate,thisIsTime;
+
+    public Date_Time(String thisIsDate, String thisIsTime) {
+        this.thisIsDate = thisIsDate;
+        this.thisIsTime = thisIsTime;
+    }
+
     Context context;
 
     public Date_Time() {
@@ -61,6 +68,7 @@ public class Date_Time {
                 calendar1.set(Calendar.HOUR, hour);
                 calendar1.set(Calendar.MINUTE, minute);
                 String dateText = DateFormat.format("h:mm a", calendar1).toString();
+                thisIsTime=dateText;
 
             }
         }, HOUR, MINUTE, is24HourFormat);
