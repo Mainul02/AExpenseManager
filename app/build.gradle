@@ -31,4 +31,5 @@ dependencies {
     implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
     implementation 'com.yangping:ypwaveview:1.0.3'
     implementation 'com.github.john990:WaveView:v0.9'
+    implementation 'com.github.BlackBoxVision:datetimepicker-edittext:v0.4.0'
 }
